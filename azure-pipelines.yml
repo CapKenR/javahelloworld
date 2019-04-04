@@ -16,9 +16,6 @@ variables:
 
 steps:
 - script: |
-    echo $(id)
-    echo $(pswd)
-    echo $(imageName)
     docker image build -t $(id)/$(imageName) .
     docker login -u $(id) -p $(pswd)
     docker image push $(id)/$(imageName)
