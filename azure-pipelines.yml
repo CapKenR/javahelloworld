@@ -14,9 +14,9 @@ variables:
 
 steps:
 - script: |
-    docker build -t $(dockerId)/$(imageName) .
+    docker build -t $(id)/$(imageName) .
     docker login -u $(id) -p $(pswd)
-    docker push $(dockerId)/$(imageName)
+    docker push $(id)/$(imageName)
   env:
     id: $(dockerId)
     pswd: $(dockerPassword)        # Define dockerPassword in the Variables tab of this pipeline in Pipelines page of web interface
