@@ -10,9 +10,9 @@ pool:
   vmImage: 'Ubuntu-16.04'
 
 variables:
-- dockerId: CapKenR
-- dockerPassword: igDuMJoj7QqQHKk9YgLN
-- imageName: 'helloworld:$(build.buildId)'
+  dockerId: CapKenR
+  dockerPassword: igDuMJoj7QqQHKk9YgLN
+  imageName: 'helloworld:$(build.buildId)'
 
 steps:
 - script: |
