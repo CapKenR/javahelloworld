@@ -10,8 +10,13 @@ pool:
   vmImage: 'Ubuntu-16.04'
 
 variables:
-  imageName: 'your-container-image-name:$(build.buildId)'
+  imageName: 'helloworld:$(build.buildId)'
 
 steps:
-- script: docker build -f Dockerfile -t $(imageName) .
-  displayName: 'docker build'
+- script: |
+    docker build -t $(dockerId)/$(imageName) .
+    docker login -u $(id) -p $(pswd)
+    docker push $(dockerId)/$(imageName)
+  env:
+    id: $(dockerId)
+    pswd: $(dockerPassword)        # Define dockerPassword in the Variables tab of this pipeline in Pipelines page of web interface
