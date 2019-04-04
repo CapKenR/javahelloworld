@@ -10,7 +10,9 @@ pool:
   vmImage: 'Ubuntu-16.04'
 
 variables:
-  imageName: 'helloworld:$(build.buildId)'
+- group: docker-hub
+- name: imageName
+  value: 'helloworld:$(build.buildId)'
 
 steps:
 - script: |
